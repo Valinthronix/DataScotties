@@ -35,7 +35,7 @@ class GameFSM(object):
         """
         self.history[0].append(die)
         inter_pos = self.position + die
-        if (inter_pos > 16): inter_pos = self.n
+        if (inter_pos > self.n): inter_pos = self.n
         state_obj = self.all_states[inter_pos]
         final_pos = state_obj.process()
         self.position = final_pos
