@@ -28,9 +28,7 @@ class GameFSM(object):
         self.n = n 
         for ix in range(n+1):
             self.all_states.append(State(ix))
-        self.history = (None, None)
-        for i in self.history:
-            i = []
+        self.history = ([],[])
             
     def move(self, die):
         """die is an integer
