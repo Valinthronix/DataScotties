@@ -1,4 +1,4 @@
-from random import randint
+import random
 import pprint
 
 class State(object):
@@ -19,7 +19,6 @@ class State(object):
             # link is None: "Normal" = not a snake or ladder
             return self.index
 
-def roll(): return randint(1,6)
 
 class GameFSM(object):
     def __init__(self, n):
@@ -28,7 +27,7 @@ class GameFSM(object):
         self.n = n 
         for ix in range(n+1):
             self.all_states.append(State(ix))
-        self.history = ([],[])
+        self.history = [[],[]]
             
     def move(self, die):
         """die is an integer
@@ -45,15 +44,20 @@ class GameFSM(object):
         print("Starting game!")
         while self.position < self.n:
             # roll die
-            die = roll()
+            die = rollDie()
             # move based on die roll
             self.move(die)
             # record results
         print("Game over!")
         
     def story(self):
-        pprint.pprint(self.history)
-        
+        pprint.pprint(self.history, width=(5*len(self.history[0])))
+  
+DIE_SIDES = 4
+
+def rollDie():
+    return random.randint(1, DIE_SIDES)
+  
 game = GameFSM(16)
 
 print(game.all_states)
