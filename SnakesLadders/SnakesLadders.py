@@ -59,6 +59,8 @@ class GameFSM(object):
             # move based on die roll
             self.move(die)
             # record results
+            thisturn = (table(self.n))
+            thisturn[int(transy(self.position, self.n))][int(transx(self.position, self.n))] = 1
             print ("Player rolled a %i" % (die))
             print ("Player moved to position %i" % (self.position))
         print("Game over!")
@@ -73,6 +75,24 @@ def rollDie():
   
 game = GameFSM(16)
 
+def rollDie():
+    return random.randint(1, DIE_SIDES)  
+
+def table(n): 
+    return [[0 for i in range(int(math.sqrt(n)))] for j in range(int(math.sqrt(n)))]
+
+def transy(a, n):
+    return (math.floor((n-a)/math.sqrt(n)))
+
+def transx(a, n):
+    if ((math.floor((n-a)/math.sqrt(n))) % 2) == 1 :
+        return ((a-1) % math.sqrt(n))
+    else:
+        return ((n-a) % math.sqrt(n))
+
+SIZE = 100
+
+game = GameFSM(SIZE)
 
 # Ladders
 game.all_states[2].link = 10
