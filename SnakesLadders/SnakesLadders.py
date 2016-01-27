@@ -20,9 +20,11 @@ class State(object):
         if self.link:
             if self.link > self.index:
                 # Ladder!
+                print("Ladder from {0} -> {1}".format(self.index, self.link))
                 return self.link
             else:
                 # Snake!
+                print("Snake from {0} -> {1}".format(self.index, self.link))
                 return self.link
         else:
             # link is None: "Normal" = not a snake or ladder
