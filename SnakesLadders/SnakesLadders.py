@@ -63,7 +63,9 @@ game = GameFSM(16)
 print(game.all_states)
 
 # Ladders
-
 game.all_states[2].link = 10
 game.all_states[8].link = 14
 
+# Snakes
+game.all_states[11].link = 4
+game.all_states[15].links = 6
