@@ -5,6 +5,15 @@ class State(object):
     def __init__(self, ix):
         self.index = ix
         self.link = None  # placeholder, not None if Snake or Ladder
+        
+    def __repr__(self):
+        if self.link:
+            if self.link > self.index:
+                return ("Space %i is a ladder linking to space %i" % (self.index, self.link))
+            if self.link < self.index:
+                return ("Space %i is a snake linking to space %i" % (self.index, self.link))
+        else:
+            return ("Space %i is neutral" % self.index)
 
     def process(self):
         """Action when landed upon"""
@@ -48,6 +57,8 @@ class GameFSM(object):
             # move based on die roll
             self.move(die)
             # record results
+            print ("Player rolled a %i" % (die))
+            print ("Player moved to position %i" % (self.position))
         print("Game over!")
         
     def story(self):
@@ -60,7 +71,6 @@ def rollDie():
   
 game = GameFSM(16)
 
-print(game.all_states)
 
 # Ladders
 game.all_states[2].link = 10
@@ -68,4 +78,6 @@ game.all_states[8].link = 14
 
 # Snakes
 game.all_states[11].link = 4
-game.all_states[15].links = 6
+game.all_states[15].link = 6
+
+pprint.pprint(game.all_states)
