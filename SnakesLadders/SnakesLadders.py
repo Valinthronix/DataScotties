@@ -116,8 +116,12 @@ print ("The total number of moves is %i" % (len(game.records)))
 
 # Find number of snakes or ladders used in game
 
-c = 0
+s = 0
+l = 0
 for i in game.records:
-    if (i["kind"] == 'L' or i["kind"] == 'S'):
-        c += 1
-print ("The number of snakes or ladders is %i" % (c))
+    if (i["kind"] == 'L'):
+        l += 1
+    elif (i["kind"] == 'S'):
+        s += 1
+print ("The number of snakes is %i" % (s))
+print ("The number of ladders is %i" % (l))
