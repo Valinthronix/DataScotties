@@ -112,16 +112,20 @@ pprint.pprint(game.records)
 
 # Find total number of moves from records
 
-print ("The total number of moves is %i" % (len(game.records)))
+def count_moves(records):
+    return len(records)
 
 # Find number of snakes or ladders used in game
 
-s = 0
-l = 0
-for i in game.records:
-    if (i["kind"] == 'L'):
-        l += 1
-    elif (i["kind"] == 'S'):
-        s += 1
-print ("The number of snakes is %i" % (s))
-print ("The number of ladders is %i" % (l))
+def count_snakes_and_ladders(records):
+    s = 0
+    l = 0
+    for i in records:
+        if (i["kind"] == 'L'):
+            l += 1
+        elif (i["kind"] == 'S'):
+            s += 1
+    return (s, l)
+
+print ("The number of snakes is %i. The number of ladders is %i" % (count_snakes_and_ladders(game.records) ))
+print ("The total number of moves is %i" % (count_moves(game.records)))("The number of snakes is {0}. The number of ladders is {1}".format(count_snakes_and_ladders(game.records)))
