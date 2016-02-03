@@ -6,31 +6,28 @@ Kind character codes:
 # coding: utf-8
 
 import random
-import pprint
 
 class State(object):
     def __init__(self, ix):
+        """index is the position on the board for this state instance.
+        link is either None (normal blank location) or the index of a state connected
+        by a snake or a ladder.
+        """
         self.index = ix
-        self.link = None  # placeholder, not None if Snake or Ladder
-        self.kind = None
-
-    def process(self):
-        """Action when landed upon"""
-        if self.link:
-            if self.link > self.index:
-                # ! this is inefficient because it gets re-updated every time
-                # this method is called!
-                self.kind = 'L'
-                print("Ladder from {0} -> {1}".format(self.index, self.link))
-                return self.link
-            else:
-                self.kind = 'S'
-                print("Snake from {0} -> {1}".format(self.index, self.link))
-                return self.link
+        self.link = ix  # placeholder, not None if Snake or Ladder
+        self.kind = 'B'  # placeholder blank state (updated in first call to process)
+            
+        
+    def set(self, link = None):
+        if link == None:
+            link = self.index
+        self.link = link
+        if self.link > self.index:
+            self.kind = 'L'
+        elif self.link < self.index:
+            self.kind = 'S'
         else:
-            # link is None: "Blank" = not a snake or ladder
             self.kind = 'B'
-            return self.index
 
 
 class GameFSM(object):
@@ -61,7 +58,7 @@ class GameFSM(object):
             kind = 'B'
             final_pos = self.n
         else:
-            final_pos = state_obj.process()
+            final_pos = state_obj.link
             kind = state_obj.kind
         self.position = final_pos
         # all this could be written more consisely as
@@ -85,47 +82,33 @@ class GameFSM(object):
             self.move_and_record(die)
             print("New position is {}".format(self.position))
         print("Game over!")
+    
+    def reset(self):
+        self.position = 0
+        self.records = []
+    
 
+# Find total number of moves from records
+def count_moves(records):
+    return len(records)
+
+# Find number of snakes or ladders used in game
+def count_snakes_and_ladders(records):
+    """
+    records is a list of dictionaries keyed with 'kind', 'start', 'end', 'die'
+    Returns a pair (s, l) of counts of landing on any snake or ladder
+    """
+    tot_s = 0
+    tot_l = 0
+    for rec in records:
+        if rec['kind'] == 'S':
+            tot_s = tot_s + 1
+        elif rec['kind'] == 'L':
+            tot_l = tot_l + 1
+    return tot_s, tot_l
 
 def rollDie():
     return random.randint(1, DIE_SIDES)
 
 # Global constant in caps
 DIE_SIDES = 4
-
-game = GameFSM(16)
-
-
-# Make ladders
-game.all_states[2].link = 10
-game.all_states[8].link = 14
-
-# Make snakes
-game.all_states[11].link = 4
-game.all_states[15].links = 6
-
-#print(game.all_states)
-
-game.run()
-
-pprint.pprint(game.records)
-
-# Find total number of moves from records
-
-def count_moves(records):
-    return len(records)
-
-# Find number of snakes or ladders used in game
-
-def count_snakes_and_ladders(records):
-    s = 0
-    l = 0
-    for i in records:
-        if (i["kind"] == 'L'):
-            l += 1
-        elif (i["kind"] == 'S'):
-            s += 1
-    return (s, l)
-
-print ("The number of snakes is %i. The number of ladders is %i" % (count_snakes_and_ladders(game.records) ))
-print ("The total number of moves is %i" % (count_moves(game.records)))("The number of snakes is {0}. The number of ladders is {1}".format(count_snakes_and_ladders(game.records)))
