@@ -146,4 +146,4 @@ def rollDie():
     return random.randint(1, DIE_SIDES)
 
 # Global constant in caps
-DIE_SIDES = 4
+DIE_SIDES = 6
