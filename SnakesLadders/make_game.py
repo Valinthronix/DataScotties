@@ -1,4 +1,4 @@
-import snakesladders as SL
+import SnakesLadders as SL
 
 def make_game_from_dict(setup):
     """
