@@ -57,3 +57,7 @@ docs/_build/
 
 # PyBuilder
 target/
+
+SnakesLadders/SnakesLadders.py
+
+SnakesLadders/SL_testing.ipynb
