@@ -1,5 +1,47 @@
 [
     {
+        "name": "Milton Bradley",
+        "size": 100,
+        "URL": "https://upload.wikimedia.org/wikipedia/en/b/ba/Cnl03.jpg",
+        "ladders": [
+            [
+                1,
+                38
+            ],
+            [
+                4,
+                14
+            ],
+            [
+                9,
+                31
+            ],
+            [
+                28,
+                84
+            ],
+            [
+                21,
+                42
+            ],
+            [
+                36,
+                44
+            ],
+            [
+                51,
+                67
+            ],
+            [
+                71,
+                81
+            ],
+            [
+                80,
+                100
+            ]
+        ],
+        "diesides": 6,
         "snakes": [
             [
                 16,
@@ -41,51 +83,47 @@
                 98,
                 78
             ]
-        ],
+        ]
+    },
+    {
+        "name": "Random online example",
         "size": 100,
-        "diesides": 6,
+        "URL": "http://2.bp.blogspot.com/-BAXe2vGFAEo/UxFsY8PwCAI/AAAAAAAAE0c/uHRwHjY8lwk/s1600/Snakes&Ladders-Nationalseriesgames.jpg",
         "ladders": [
             [
-                1,
-                38
-            ],
-            [
-                4,
-                14
-            ],
-            [
-                9,
-                31
-            ],
-            [
-                28,
-                84
+                8,
+                26
             ],
             [
                 21,
-                42
+                82
             ],
             [
-                36,
-                44
+                43,
+                77
             ],
             [
-                51,
-                67
+                50,
+                91
             ],
             [
-                71,
-                81
+                54,
+                93
             ],
             [
-                80,
+                66,
+                87
+            ],
+            [
+                62,
+                96
+            ],
+            [
+                60,
                 100
             ]
         ],
-        "name": "Milton Bradley",
-        "URL": "https://upload.wikimedia.org/wikipedia/en/b/ba/Cnl03.jpg"
-    },
-    {
+        "diesides": 6,
         "snakes": [
             [
                 73,
@@ -135,91 +173,12 @@
                 92,
                 51
             ]
-        ],
-        "size": 100,
-        "diesides": 6,
-        "ladders": [
-            [
-                8,
-                26
-            ],
-            [
-                21,
-                82
-            ],
-            [
-                43,
-                77
-            ],
-            [
-                50,
-                91
-            ],
-            [
-                54,
-                93
-            ],
-            [
-                66,
-                87
-            ],
-            [
-                62,
-                96
-            ],
-            [
-                60,
-                100
-            ]
-        ],
-        "name": "Random online example",
-        "URL": "http://2.bp.blogspot.com/-BAXe2vGFAEo/UxFsY8PwCAI/AAAAAAAAE0c/uHRwHjY8lwk/s1600/Snakes&Ladders-Nationalseriesgames.jpg"
+        ]
     },
     {
-        "snakes": [
-            [
-                6,
-                4
-            ],
-            [
-                10,
-                7
-            ],
-            [
-                20,
-                18
-            ],
-            [
-                38,
-                13
-            ],
-            [
-                44,
-                8
-            ],
-            [
-                52,
-                28
-            ],
-            [
-                68,
-                65
-            ],
-            [
-                74,
-                51
-            ],
-            [
-                82,
-                45
-            ],
-            [
-                98,
-                75
-            ]
-        ],
+        "name": "custom",
         "size": 100,
-        "diesides": 6,
+        "URL": null,
         "ladders": [
             [
                 2,
@@ -262,7 +221,48 @@
                 95
             ]
         ],
-        "name": "custom",
-        "URL": null
+        "diesides": 6,
+        "snakes": [
+            [
+                6,
+                4
+            ],
+            [
+                10,
+                7
+            ],
+            [
+                20,
+                18
+            ],
+            [
+                38,
+                13
+            ],
+            [
+                44,
+                8
+            ],
+            [
+                52,
+                28
+            ],
+            [
+                68,
+                65
+            ],
+            [
+                74,
+                51
+            ],
+            [
+                82,
+                45
+            ],
+            [
+                98,
+                75
+            ]
+        ]
     }
 ]
